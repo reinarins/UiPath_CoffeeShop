@@ -1,0 +1,37 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "user_ID&StateMachine_1",
+        "dt_employeesID&StateMachine_1",
+        "bool_employeeExists&StateMachine_1",
+        "str_employeeName&StateMachine_1",
+        "dict_beveragesMenu&StateMachine_1",
+        "dict_foodMenu&StateMachine_1",
+        "dou_foodPrice&StateMachine_1",
+        "dou_beveragePrice&StateMachine_1",
+        "dou_totalAmount&StateMachine_1",
+        "int_credit&StateMachine_1",
+        "dou_change&StateMachine_1",
+        "str_beveragePrice&StateMachine_1",
+        "str_beverageName&StateMachine_1",
+        "str_selectedFood&StateMachine_1",
+        "str_selectedBeverage&StateMachine_1",
+        "str_option&StateMachine_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}
