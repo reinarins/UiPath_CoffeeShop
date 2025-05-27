@@ -104,7 +104,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <StateMachine InitialState="{x:Reference __ReferenceID4}" DisplayName="State Machine" sap:VirtualizedContainerService.HintSize="1651.3333333333333,941.3733333333332" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+    <StateMachine InitialState="{x:Reference __ReferenceID4}" DisplayName="State Machine" sap:VirtualizedContainerService.HintSize="1651.3333333333333,564.824" sap2010:WorkflowViewState.IdRef="StateMachine_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -216,13 +216,12 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <Transition.To>
-              <State x:Name="__ReferenceID0" DisplayName="Product Selection" sap:VirtualizedContainerService.HintSize="230,60.666666666666664" sap2010:WorkflowViewState.IdRef="State_2">
+              <State x:Name="__ReferenceID0" DisplayName="Product Selection" sap:VirtualizedContainerService.HintSize="559.3333333333334,2017.333333333333" sap2010:WorkflowViewState.IdRef="State_2">
                 <State.Entry>
-                  <Sequence sap:VirtualizedContainerService.HintSize="512.6666666666666,1678.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <Sequence sap:VirtualizedContainerService.HintSize="512.6666666666666,1617.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_10">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="str_beveragesMenu" />
                       <Variable x:TypeArguments="x:String" Name="str_foodMenu" />
-                      <Variable x:TypeArguments="x:String" Name="str_foodName" />
                       <Variable x:TypeArguments="x:String" Name="str_foodPrice" />
                     </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
@@ -289,17 +288,9 @@
                         <OutArgument x:TypeArguments="x:String">[str_selectedBeverage]</OutArgument>
                       </ui:InputDialog.Result>
                     </ui:InputDialog>
-                    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Each variable stores the name and price of a product, and converts 'Price' from String to Double." DisplayName="Multiple Assign - Name and Price" sap:VirtualizedContainerService.HintSize="478.6666666666667,256" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Each variable stores the name and price of a product, and converts 'Price' from String to Double." DisplayName="Multiple Assign - Name and Price" sap:VirtualizedContainerService.HintSize="478.6666666666667,225.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
                       <ui:MultipleAssign.AssignOperations>
                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">[str_beverageName]</OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:String">[str_selectedBeverage.Split("-"c)(0).Trim]</InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
                             <ui:AssignOperation.To>
                               <OutArgument x:TypeArguments="x:String">[str_beveragePrice]</OutArgument>
@@ -329,17 +320,9 @@
                         <OutArgument x:TypeArguments="x:String">[str_selectedFood]</OutArgument>
                       </ui:InputDialog.Result>
                     </ui:InputDialog>
-                    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Each variable stores the name and price of a product, and converts 'Price' from String to Double." DisplayName="Multiple Assign - Name and Price" sap:VirtualizedContainerService.HintSize="478.6666666666667,246.66666666666666" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+                    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Each variable stores the name and price of a product, and converts 'Price' from String to Double." DisplayName="Multiple Assign - Name and Price" sap:VirtualizedContainerService.HintSize="478.6666666666667,216" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
                       <ui:MultipleAssign.AssignOperations>
                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
-                            <ui:AssignOperation.To>
-                              <OutArgument x:TypeArguments="x:String">[str_foodName]</OutArgument>
-                            </ui:AssignOperation.To>
-                            <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:String">[str_selectedFood.Split("-"c)(0).Trim]</InArgument>
-                            </ui:AssignOperation.Value>
-                          </ui:AssignOperation>
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
                             <ui:AssignOperation.To>
                               <OutArgument x:TypeArguments="x:String">[str_foodPrice]</OutArgument>
@@ -457,7 +440,7 @@
                             </sap:WorkflowViewStateService.ViewState>
                             <Transition.Condition>[int_credit &gt;= dou_totalAmount]</Transition.Condition>
                             <Transition.To>
-                              <State x:Name="__ReferenceID5" DisplayName="Give Change and Ticket" sap:VirtualizedContainerService.HintSize="593.3333333333334,1212.6666666666667" sap2010:WorkflowViewState.IdRef="State_7">
+                              <State x:Name="__ReferenceID5" DisplayName="Give Change and Ticket" sap:VirtualizedContainerService.HintSize="210,70" sap2010:WorkflowViewState.IdRef="State_7">
                                 <State.Entry>
                                   <Sequence sap2010:Annotation.AnnotationText="Once the products are confirmed and the payment is completed, the robot calculates any remaining change and displays it." sap:VirtualizedContainerService.HintSize="546.6666666666666,842" sap2010:WorkflowViewState.IdRef="Sequence_15">
                                     <sap:WorkflowViewStateService.ViewState>
@@ -475,7 +458,7 @@
                                       </Assign.Value>
                                     </Assign>
                                     <ui:MessageBox ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" Caption="Smart Café Station" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="512.6666666666666,118.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_10" Text="[&quot;Don't forget your change: &quot; + dou_change.ToString(&quot;F2&quot;) + &quot; €&quot;]" />
-                                    <Sequence sap2010:Annotation.AnnotationText="A digital ticket is displayed, showing:&#xD;&#xA;- Name of employee.&#xD;&#xA;- Products 1 &amp; 2.&#xD;&#xA;- Price.&#xD;&#xA;- Payment.&#xD;&#xA;- Change.&#xD;&#xA;- Current date &amp; time." DisplayName="ORDER TICKET" sap:VirtualizedContainerService.HintSize="512.6666666666666,500.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                    <Sequence sap2010:Annotation.AnnotationText="A digital ticket is displayed, showing:&#xA;- Name of employee.&#xA;- Products 1 &amp; 2.&#xA;- Price.&#xA;- Payment.&#xA;- Change.&#xA;- Current date &amp; time." DisplayName="ORDER TICKET" sap:VirtualizedContainerService.HintSize="512.6666666666666,500.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_16">
                                       <Sequence.Variables>
                                         <Variable x:TypeArguments="x:String" Name="dt_date" />
                                         <Variable x:TypeArguments="x:String" Name="dt_time" />
@@ -508,7 +491,7 @@
                                           </scg:List>
                                         </ui:MultipleAssign.AssignOperations>
                                       </ui:MultipleAssign>
-                                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="478.6666666666667,109.33333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_11" Text="[&quot;ORDER TICKET&quot; + vbCr + &quot;-----------------------------&quot; + vbCr + &quot;User: &quot; + str_employeeName + vbCr + &quot;Product 1: &quot; + str_beverageName + vbCr + &quot;Product 2: &quot; + str_selectedFood + vbCr + &quot;Price: &quot; + dou_totalAmount.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + &quot;Paid: &quot; + int_credit.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + &quot;Change: &quot; + dou_change.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + &quot;Date: &quot; + dt_date + vbCr + &quot;Time: &quot; + dt_time + vbCr + &quot;-----------------------------&quot; + vbCr + &quot;Please collect your order at the counter&quot;]" />
+                                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="478.6666666666667,109.33333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_11" Text="[&quot;ORDER TICKET&quot; + vbCr + &quot;-----------------------------&quot; + vbCr + &quot;User: &quot; + str_employeeName + vbCr + &quot;Product 1: &quot; + str_selectedBeverage + vbCr + &quot;Product 2: &quot; + str_selectedFood + vbCr + &quot;Price: &quot; + dou_totalAmount.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + &quot;Paid: &quot; + int_credit.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + &quot;Change: &quot; + dou_change.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + &quot;Date: &quot; + dt_date + vbCr + &quot;Time: &quot; + dt_time + vbCr + &quot;-----------------------------&quot; + vbCr + &quot;Please collect your order at the counter&quot;]" />
                                     </Sequence>
                                   </Sequence>
                                 </State.Entry>
@@ -562,7 +545,7 @@
                             <Transition.To>
                               <State x:Name="__ReferenceID3" DisplayName="Go back?" sap:VirtualizedContainerService.HintSize="206,60.666666666666664" sap2010:WorkflowViewState.IdRef="State_4">
                                 <State.Entry>
-                                  <Sequence sap2010:Annotation.AnnotationText="If products aren't selected, or credit is insufficient, 3 options are displayed:&#xD;&#xA;- Select another item.&#xD;&#xA;- Add more credit.&#xD;&#xA;- Cancel order." sap:VirtualizedContainerService.HintSize="450,462" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                  <Sequence sap2010:Annotation.AnnotationText="If products aren't selected, or credit is insufficient, 3 options are displayed:&#xA;- Select another item.&#xA;- Add more credit.&#xA;- Cancel order." sap:VirtualizedContainerService.HintSize="450,462" sap2010:WorkflowViewState.IdRef="Sequence_17">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -716,7 +699,6 @@
         <Variable x:TypeArguments="x:Int32" Default="0" Name="int_credit" />
         <Variable x:TypeArguments="x:Double" Name="dou_change" />
         <Variable x:TypeArguments="x:String" Name="str_beveragePrice" />
-        <Variable x:TypeArguments="x:String" Name="str_beverageName" />
         <Variable x:TypeArguments="x:String" Name="str_selectedFood" />
         <Variable x:TypeArguments="x:String" Name="str_selectedBeverage" />
         <Variable x:TypeArguments="x:String" Name="str_option" />
