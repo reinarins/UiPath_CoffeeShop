@@ -12,7 +12,8 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "str_credit&Sequence_12",
+        "dt_date&Sequence_16",
+        "dt_time&Sequence_16",
         "user_ID&StateMachine_1",
         "dt_employeesID&StateMachine_1",
         "bool_employeeExists&StateMachine_1",
