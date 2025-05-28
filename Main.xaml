@@ -359,302 +359,340 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <State.Transitions>
-                  <Transition DisplayName="Products Selected" sap:VirtualizedContainerService.HintSize="573.3333333333334,678.6666666666666" sap2010:WorkflowViewState.IdRef="Transition_7">
+                  <Transition DisplayName="No Products Selected" sap:VirtualizedContainerService.HintSize="628,502" sap2010:WorkflowViewState.IdRef="Transition_6">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <av:PointCollection x:Key="ConnectorLocation">678.5,200.66666666666666 678.5,280</av:PointCollection>
-                        <x:Int32 x:Key="SrcConnectionPointIndex">35</x:Int32>
-                        <x:Int32 x:Key="DestConnectionPointIndex">34</x:Int32>
+                        <av:PointCollection x:Key="ConnectorLocation">805,173.36666666666667 1129.4,173.36666666666667 1129.4,200</av:PointCollection>
+                        <x:Int32 x:Key="SrcConnectionPointIndex">40</x:Int32>
+                        <x:Int32 x:Key="DestConnectionPointIndex">30</x:Int32>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <Transition.To>
-                      <State x:Name="__ReferenceID2" DisplayName="Payment" sap:VirtualizedContainerService.HintSize="230,80" sap2010:WorkflowViewState.IdRef="State_5">
+                      <State x:Name="__ReferenceID1" DisplayName="Go back?" sap:VirtualizedContainerService.HintSize="206,60.666666666666664" sap2010:WorkflowViewState.IdRef="State_4">
                         <State.Entry>
-                          <Sequence sap:VirtualizedContainerService.HintSize="504,762" sap2010:WorkflowViewState.IdRef="Sequence_12">
-                            <Sequence.Variables>
-                              <Variable x:TypeArguments="x:String" Name="str_credit" />
-                            </Sequence.Variables>
+                          <Sequence sap2010:Annotation.AnnotationText="If products aren't selected, or credit is insufficient, 3 options are displayed:&#xA;- Select another item.&#xA;- Add more credit.&#xA;- Cancel order." sap:VirtualizedContainerService.HintSize="450,462" sap2010:WorkflowViewState.IdRef="Sequence_17">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="470,332.6666666666667" sap2010:WorkflowViewState.IdRef="InputDialog_5" IsPassword="False" Label="[&quot;Insert payment to continue your order: &quot; + vbCr + &quot;Current credit: &quot; + int_credit.ToString(&quot;F2&quot;) + &quot; €&quot;]" OptionsString="1 €;2 €;5 €;10 €;Continue" Title="Smart Café Station">
+                            <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="416,323.3333333333333" sap2010:WorkflowViewState.IdRef="InputDialog_6" IsPassword="False" Label="Please select an option to continue:" OptionsString="Select another item;Insert more credit;Cancel order" Title="Smart Café Station">
                               <ui:InputDialog.Result>
-                                <OutArgument x:TypeArguments="x:String">[str_credit]</OutArgument>
+                                <OutArgument x:TypeArguments="x:String">[str_option]</OutArgument>
                               </ui:InputDialog.Result>
                             </ui:InputDialog>
-                            <If sap2010:Annotation.AnnotationText="Each input is converted into Int32, and added to the total credit. This simulates real behavior of adding coins/bills to a self-service machine." Condition="[str_credit.Contains(&quot;Continue&quot;)]" DisplayName="If Adding Credit" sap:VirtualizedContainerService.HintSize="470,369.3333333333333" sap2010:WorkflowViewState.IdRef="If_4">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <If.Then>
-                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_28">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </Sequence>
-                              </If.Then>
-                              <If.Else>
-                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,168" sap2010:WorkflowViewState.IdRef="Sequence_29">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <Assign DisplayName="Add Credit" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_20">
-                                    <Assign.To>
-                                      <OutArgument x:TypeArguments="x:Int32">[int_credit]</OutArgument>
-                                    </Assign.To>
-                                    <Assign.Value>
-                                      <InArgument x:TypeArguments="x:Int32">[int_credit + CInt(str_credit.Replace("€", "").Trim)]</InArgument>
-                                    </Assign.Value>
-                                  </Assign>
-                                </Sequence>
-                              </If.Else>
-                            </If>
                           </Sequence>
                         </State.Entry>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <av:Point x:Key="ShapeLocation">575,280</av:Point>
-                            <av:Size x:Key="ShapeSize">230,80</av:Size>
+                            <av:Point x:Key="ShapeLocation">1047,200</av:Point>
+                            <av:Size x:Key="ShapeSize">206,60.666666666666664</av:Size>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            <x:Double x:Key="StateContainerWidth">217.9999999999999</x:Double>
-                            <x:Double x:Key="StateContainerHeight">48.746666666666684</x:Double>
+                            <x:Double x:Key="StateContainerWidth">193.99999999999966</x:Double>
+                            <x:Double x:Key="StateContainerHeight">29</x:Double>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <State.Transitions>
-                          <Transition DisplayName="Enough Credit" sap:VirtualizedContainerService.HintSize="451.3333333333333,502" sap2010:WorkflowViewState.IdRef="Transition_9">
+                          <Transition DisplayName="Yes" sap:VirtualizedContainerService.HintSize="451.3333333333333,502" sap2010:WorkflowViewState.IdRef="Transition_11">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <av:PointCollection x:Key="ConnectorLocation">690,360 690,390 692,390 692,435</av:PointCollection>
-                                <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
-                                <x:Int32 x:Key="DestConnectionPointIndex">38</x:Int32>
+                                <av:PointCollection x:Key="ConnectorLocation">1211.8,200 1211.8,110 701.5,110 701.5,140</av:PointCollection>
+                                <x:Int32 x:Key="SrcConnectionPointIndex">62</x:Int32>
+                                <x:Int32 x:Key="DestConnectionPointIndex">42</x:Int32>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Transition.Condition>[int_credit &gt;= dou_totalAmount]</Transition.Condition>
                             <Transition.To>
-                              <State x:Name="__ReferenceID5" DisplayName="Give Change and Ticket" sap:VirtualizedContainerService.HintSize="593.3333333333334,1828.6666666666667" sap2010:WorkflowViewState.IdRef="State_7">
+                              <x:Reference>__ReferenceID0</x:Reference>
+                            </Transition.To>
+                            <Transition.Condition>
+                              <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="str_option.Equals(&quot;Select another item&quot;)" />
+                            </Transition.Condition>
+                          </Transition>
+                          <Transition DisplayName="More credit" sap:VirtualizedContainerService.HintSize="451.3333333333333,502" sap2010:WorkflowViewState.IdRef="Transition_15">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:PointCollection x:Key="ConnectorLocation">1150,260.6666666666667 1150,390 770.5,390 770.5,360</av:PointCollection>
+                                <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
+                                <x:Int32 x:Key="DestConnectionPointIndex">67</x:Int32>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Transition.Condition>[str_option.Equals("Insert more credit")]</Transition.Condition>
+                            <Transition.To>
+                              <State x:Name="__ReferenceID3" DisplayName="Payment" sap:VirtualizedContainerService.HintSize="230,80" sap2010:WorkflowViewState.IdRef="State_5">
                                 <State.Entry>
-                                  <Sequence sap2010:Annotation.AnnotationText="Once the products are confirmed and the payment is completed, the robot calculates any remaining change and displays it." sap:VirtualizedContainerService.HintSize="546.6666666666666,1458" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                  <Sequence sap:VirtualizedContainerService.HintSize="504,762" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                    <Sequence.Variables>
+                                      <Variable x:TypeArguments="x:String" Name="str_credit" />
+                                    </Sequence.Variables>
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Assign sap:VirtualizedContainerService.HintSize="512.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_10">
-                                      <Assign.To>
-                                        <OutArgument x:TypeArguments="x:Double">[dou_change]</OutArgument>
-                                      </Assign.To>
-                                      <Assign.Value>
-                                        <InArgument x:TypeArguments="x:Double">[int_credit - dou_totalAmount]</InArgument>
-                                      </Assign.Value>
-                                    </Assign>
-                                    <ui:MessageBox ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" Caption="Smart Café Station" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="512.6666666666666,118.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_10" Text="[&quot;Don't forget your change: &quot; + dou_change.ToString(&quot;F2&quot;) + &quot; €&quot;]" />
-                                    <Sequence sap2010:Annotation.AnnotationText="A digital ticket is displayed, showing:&#xA;- Name of employee.&#xA;- Products 1 &amp; 2.&#xA;- Price.&#xA;- Payment.&#xA;- Change.&#xA;- Current date &amp; time." DisplayName="ORDER TICKET" sap:VirtualizedContainerService.HintSize="512.6666666666666,1116.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_16">
-                                      <Sequence.Variables>
-                                        <Variable x:TypeArguments="x:String" Name="dt_date" />
-                                        <Variable x:TypeArguments="x:String" Name="dt_time" />
-                                      </Sequence.Variables>
+                                    <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="470,332.6666666666667" sap2010:WorkflowViewState.IdRef="InputDialog_5" IsPassword="False" Label="[&quot;Insert payment to continue your order: &quot; + vbCr + &quot;Current credit: &quot; + int_credit.ToString(&quot;F2&quot;) + &quot; €&quot;]" OptionsString="1 €;2 €;5 €;10 €;Continue" Title="Smart Café Station">
+                                      <ui:InputDialog.Result>
+                                        <OutArgument x:TypeArguments="x:String">[str_credit]</OutArgument>
+                                      </ui:InputDialog.Result>
+                                    </ui:InputDialog>
+                                    <If sap2010:Annotation.AnnotationText="Each input is converted into Int32, and added to the total credit. This simulates real behavior of adding coins/bills to a self-service machine." Condition="[str_credit.Contains(&quot;Continue&quot;)]" DisplayName="If Adding Credit" sap:VirtualizedContainerService.HintSize="470,369.3333333333333" sap2010:WorkflowViewState.IdRef="If_4">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:MultipleAssign DisplayName="Fecha y Hora" sap:VirtualizedContainerService.HintSize="478.6666666666667,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
-                                        <ui:MultipleAssign.AssignOperations>
-                                          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
-                                              <ui:AssignOperation.To>
-                                                <OutArgument x:TypeArguments="x:String">[dt_date]</OutArgument>
-                                              </ui:AssignOperation.To>
-                                              <ui:AssignOperation.Value>
-                                                <InArgument x:TypeArguments="x:String">[Now.ToString("dd/MM/yyyy")]</InArgument>
-                                              </ui:AssignOperation.Value>
-                                            </ui:AssignOperation>
-                                            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
-                                              <ui:AssignOperation.To>
-                                                <OutArgument x:TypeArguments="x:String">[dt_time]</OutArgument>
-                                              </ui:AssignOperation.To>
-                                              <ui:AssignOperation.Value>
-                                                <InArgument x:TypeArguments="x:String">[Now.ToString("HH:mm:ss")]</InArgument>
-                                              </ui:AssignOperation.Value>
-                                            </ui:AssignOperation>
-                                          </scg:List>
-                                        </ui:MultipleAssign.AssignOperations>
-                                      </ui:MultipleAssign>
-                                      <ui:IfElseIfV2 Condition="[str_selectedBeverage.Contains(&quot;Nothing&quot;)]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="478.6666666666667,725.3333333333334" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
-                                        <ui:IfElseIfV2.Else>
-                                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,169.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_31">
-                                            <sap:WorkflowViewStateService.ViewState>
-                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                              </scg:Dictionary>
-                                            </sap:WorkflowViewStateService.ViewState>
-                                            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="382,109.33333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_11" Text="[&quot;ORDER TICKET&quot; + vbCr + &quot;-----------------------------&quot; + vbCr + &quot;Here's your ticket, &quot; + str_employeeName + vbCr + vbCr +  str_selectedBeverage + vbCr + str_selectedFood + vbCr + vbCr + &quot;Price - &quot; + dou_totalAmount.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + &quot;Paid - &quot; + int_credit.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + &quot;Change - &quot; + dou_change.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + vbCr + &quot;Date: &quot; + dt_date + vbCr + &quot;Time: &quot; + dt_time + vbCr + &quot;-----------------------------&quot; + vbCr + &quot;Please collect your order at the counter&quot;]" />
-                                          </Sequence>
-                                        </ui:IfElseIfV2.Else>
-                                        <ui:IfElseIfV2.ElseIfs>
-                                          <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
-                                            <ui:IfElseIfBlock BlockType="ElseIf" Condition="[str_selectedFood.Contains(&quot;Nothing&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
-                                              <ui:IfElseIfBlock.Then>
-                                                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,169.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_32">
-                                                  <sap:WorkflowViewStateService.ViewState>
-                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                    </scg:Dictionary>
-                                                  </sap:WorkflowViewStateService.ViewState>
-                                                  <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="382,109.33333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_14" Text="[&quot;ORDER TICKET&quot; + vbCr + &quot;-----------------------------&quot; + vbCr + &quot;Here's your ticket, &quot; + str_employeeName + vbCr + vbCr +  str_selectedBeverage + vbCr + vbCr + &quot;Price - &quot; + dou_totalAmount.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + &quot;Paid - &quot; + int_credit.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + &quot;Change - &quot; + dou_change.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + vbCr + &quot;Date: &quot; + dt_date + vbCr + &quot;Time: &quot; + dt_time + vbCr + &quot;-----------------------------&quot; + vbCr + &quot;Please collect your order at the counter&quot;]" />
-                                                </Sequence>
-                                              </ui:IfElseIfBlock.Then>
-                                            </ui:IfElseIfBlock>
-                                          </sc:BindingList>
-                                        </ui:IfElseIfV2.ElseIfs>
-                                        <ui:IfElseIfV2.Then>
-                                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,169.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_30">
-                                            <sap:WorkflowViewStateService.ViewState>
-                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                              </scg:Dictionary>
-                                            </sap:WorkflowViewStateService.ViewState>
-                                            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="382,109.33333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_13" Text="[&quot;ORDER TICKET&quot; + vbCr + &quot;-----------------------------&quot; + vbCr + &quot;Here's your ticket, &quot; + str_employeeName + vbCr + vbCr +  str_selectedFood + vbCr + vbCr + &quot;Price - &quot; + dou_totalAmount.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + &quot;Paid - &quot; + int_credit.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + &quot;Change - &quot; + dou_change.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + vbCr + &quot;Date: &quot; + dt_date + vbCr + &quot;Time: &quot; + dt_time + vbCr + &quot;-----------------------------&quot; + vbCr + &quot;Please collect your order at the counter&quot;]" />
-                                          </Sequence>
-                                        </ui:IfElseIfV2.Then>
-                                      </ui:IfElseIfV2>
-                                    </Sequence>
+                                      <If.Then>
+                                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,25.333333333333332" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </Sequence>
+                                      </If.Then>
+                                      <If.Else>
+                                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,168" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <Assign DisplayName="Add Credit" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_20">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="x:Int32">[int_credit]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="x:Int32">[int_credit + CInt(str_credit.Replace("€", "").Trim)]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </Sequence>
+                                      </If.Else>
+                                    </If>
                                   </Sequence>
                                 </State.Entry>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <av:Point x:Key="ShapeLocation">585,435</av:Point>
-                                    <av:Size x:Key="ShapeSize">214,70</av:Size>
+                                    <av:Point x:Key="ShapeLocation">575,280</av:Point>
+                                    <av:Size x:Key="ShapeSize">230,80</av:Size>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    <x:Double x:Key="StateContainerWidth">197.99999999999991</x:Double>
-                                    <x:Double x:Key="StateContainerHeight">38.746666666666684</x:Double>
+                                    <x:Double x:Key="StateContainerWidth">217.9999999999999</x:Double>
+                                    <x:Double x:Key="StateContainerHeight">48.746666666666684</x:Double>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <State.Transitions>
-                                  <Transition DisplayName="Bye" sap:VirtualizedContainerService.HintSize="451.3333333333333,502" sap2010:WorkflowViewState.IdRef="Transition_10">
+                                  <Transition DisplayName="Enough Credit" sap:VirtualizedContainerService.HintSize="476.66666666666674,502" sap2010:WorkflowViewState.IdRef="Transition_9">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <av:PointCollection x:Key="ConnectorLocation">799,470 1045,470</av:PointCollection>
-                                        <x:Int32 x:Key="SrcConnectionPointIndex">36</x:Int32>
-                                        <x:Int32 x:Key="DestConnectionPointIndex">37</x:Int32>
+                                        <av:PointCollection x:Key="ConnectorLocation">690,360 690,435</av:PointCollection>
+                                        <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
+                                        <x:Int32 x:Key="DestConnectionPointIndex">38</x:Int32>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
+                                    <Transition.Condition>
+                                      <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="int_credit &gt;= dou_totalAmount AND dou_totalAmount &gt; 0" />
+                                    </Transition.Condition>
                                     <Transition.To>
-                                      <State x:Name="__ReferenceID1" DisplayName="Final State" sap:VirtualizedContainerService.HintSize="210,70" sap2010:WorkflowViewState.IdRef="State_6" IsFinal="True">
+                                      <State x:Name="__ReferenceID5" DisplayName="Give Change and Ticket" sap:VirtualizedContainerService.HintSize="210,70" sap2010:WorkflowViewState.IdRef="State_7">
                                         <State.Entry>
-                                          <ui:MessageBox ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" Caption="Smart Café Station" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_7" Text="[&quot;Thanks for using the Smart Café Station! Enjoy your meal. :)&quot;]" />
+                                          <Sequence sap2010:Annotation.AnnotationText="Once the products are confirmed and the payment is completed, the robot calculates any remaining change and displays it." sap:VirtualizedContainerService.HintSize="546.6666666666666,1458" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Assign sap:VirtualizedContainerService.HintSize="512.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                              <Assign.To>
+                                                <OutArgument x:TypeArguments="x:Double">[dou_change]</OutArgument>
+                                              </Assign.To>
+                                              <Assign.Value>
+                                                <InArgument x:TypeArguments="x:Double">[int_credit - dou_totalAmount]</InArgument>
+                                              </Assign.Value>
+                                            </Assign>
+                                            <ui:MessageBox ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" Caption="Smart Café Station" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="512.6666666666666,118.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_10" Text="[&quot;Don't forget your change: &quot; + dou_change.ToString(&quot;F2&quot;) + &quot; €&quot;]" />
+                                            <Sequence sap2010:Annotation.AnnotationText="A digital ticket is displayed, showing:&#xA;- Name of employee.&#xA;- Products 1 &amp; 2.&#xA;- Price.&#xA;- Payment.&#xA;- Change.&#xA;- Current date &amp; time." DisplayName="ORDER TICKET" sap:VirtualizedContainerService.HintSize="512.6666666666666,1116.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                              <Sequence.Variables>
+                                                <Variable x:TypeArguments="x:String" Name="dt_date" />
+                                                <Variable x:TypeArguments="x:String" Name="dt_time" />
+                                              </Sequence.Variables>
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:MultipleAssign DisplayName="Fecha y Hora" sap:VirtualizedContainerService.HintSize="478.6666666666667,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
+                                                <ui:MultipleAssign.AssignOperations>
+                                                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+                                                      <ui:AssignOperation.To>
+                                                        <OutArgument x:TypeArguments="x:String">[dt_date]</OutArgument>
+                                                      </ui:AssignOperation.To>
+                                                      <ui:AssignOperation.Value>
+                                                        <InArgument x:TypeArguments="x:String">[Now.ToString("dd/MM/yyyy")]</InArgument>
+                                                      </ui:AssignOperation.Value>
+                                                    </ui:AssignOperation>
+                                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+                                                      <ui:AssignOperation.To>
+                                                        <OutArgument x:TypeArguments="x:String">[dt_time]</OutArgument>
+                                                      </ui:AssignOperation.To>
+                                                      <ui:AssignOperation.Value>
+                                                        <InArgument x:TypeArguments="x:String">[Now.ToString("HH:mm:ss")]</InArgument>
+                                                      </ui:AssignOperation.Value>
+                                                    </ui:AssignOperation>
+                                                  </scg:List>
+                                                </ui:MultipleAssign.AssignOperations>
+                                              </ui:MultipleAssign>
+                                              <ui:IfElseIfV2 Condition="[str_selectedBeverage.Contains(&quot;Nothing&quot;)]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="478.6666666666667,725.3333333333334" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
+                                                <ui:IfElseIfV2.Else>
+                                                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,169.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="382,109.33333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_11" Text="[&quot;ORDER TICKET&quot; + vbCr + &quot;-----------------------------&quot; + vbCr + &quot;Here's your ticket, &quot; + str_employeeName + vbCr + vbCr +  str_selectedBeverage + vbCr + str_selectedFood + vbCr + vbCr + &quot;Price - &quot; + dou_totalAmount.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + &quot;Paid - &quot; + int_credit.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + &quot;Change - &quot; + dou_change.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + vbCr + &quot;Date: &quot; + dt_date + vbCr + &quot;Time: &quot; + dt_time + vbCr + &quot;-----------------------------&quot; + vbCr + &quot;Please collect your order at the counter&quot;]" />
+                                                  </Sequence>
+                                                </ui:IfElseIfV2.Else>
+                                                <ui:IfElseIfV2.ElseIfs>
+                                                  <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                                    <ui:IfElseIfBlock BlockType="ElseIf" Condition="[str_selectedFood.Contains(&quot;Nothing&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
+                                                      <ui:IfElseIfBlock.Then>
+                                                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="416,169.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="382,109.33333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_14" Text="[&quot;ORDER TICKET&quot; + vbCr + &quot;-----------------------------&quot; + vbCr + &quot;Here's your ticket, &quot; + str_employeeName + vbCr + vbCr +  str_selectedBeverage + vbCr + vbCr + &quot;Price - &quot; + dou_totalAmount.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + &quot;Paid - &quot; + int_credit.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + &quot;Change - &quot; + dou_change.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + vbCr + &quot;Date: &quot; + dt_date + vbCr + &quot;Time: &quot; + dt_time + vbCr + &quot;-----------------------------&quot; + vbCr + &quot;Please collect your order at the counter&quot;]" />
+                                                        </Sequence>
+                                                      </ui:IfElseIfBlock.Then>
+                                                    </ui:IfElseIfBlock>
+                                                  </sc:BindingList>
+                                                </ui:IfElseIfV2.ElseIfs>
+                                                <ui:IfElseIfV2.Then>
+                                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,169.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="382,109.33333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_13" Text="[&quot;ORDER TICKET&quot; + vbCr + &quot;-----------------------------&quot; + vbCr + &quot;Here's your ticket, &quot; + str_employeeName + vbCr + vbCr +  str_selectedFood + vbCr + vbCr + &quot;Price - &quot; + dou_totalAmount.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + &quot;Paid - &quot; + int_credit.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + &quot;Change - &quot; + dou_change.ToString(&quot;F2&quot;) + &quot; €&quot; + vbCr + vbCr + &quot;Date: &quot; + dt_date + vbCr + &quot;Time: &quot; + dt_time + vbCr + &quot;-----------------------------&quot; + vbCr + &quot;Please collect your order at the counter&quot;]" />
+                                                  </Sequence>
+                                                </ui:IfElseIfV2.Then>
+                                              </ui:IfElseIfV2>
+                                            </Sequence>
+                                          </Sequence>
                                         </State.Entry>
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <av:Point x:Key="ShapeLocation">1045,435</av:Point>
+                                            <av:Point x:Key="ShapeLocation">585,435</av:Point>
                                             <av:Size x:Key="ShapeSize">210,70</av:Size>
                                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                            <x:Double x:Key="StateContainerWidth">197.99999999999966</x:Double>
+                                            <x:Double x:Key="StateContainerWidth">197.99999999999991</x:Double>
                                             <x:Double x:Key="StateContainerHeight">38.746666666666684</x:Double>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
+                                        <State.Transitions>
+                                          <Transition DisplayName="Bye" sap:VirtualizedContainerService.HintSize="451.3333333333333,502" sap2010:WorkflowViewState.IdRef="Transition_10">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <av:PointCollection x:Key="ConnectorLocation">795,470 1045,470</av:PointCollection>
+                                                <x:Int32 x:Key="SrcConnectionPointIndex">36</x:Int32>
+                                                <x:Int32 x:Key="DestConnectionPointIndex">37</x:Int32>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <Transition.To>
+                                              <State x:Name="__ReferenceID2" DisplayName="Final State" sap:VirtualizedContainerService.HintSize="210,70" sap2010:WorkflowViewState.IdRef="State_6" IsFinal="True">
+                                                <State.Entry>
+                                                  <ui:MessageBox ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" Caption="Smart Café Station" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_7" Text="[&quot;Thanks for using the Smart Café Station! Enjoy your meal. :)&quot;]" />
+                                                </State.Entry>
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <av:Point x:Key="ShapeLocation">1045,435</av:Point>
+                                                    <av:Size x:Key="ShapeSize">210,70</av:Size>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    <x:Double x:Key="StateContainerWidth">197.99999999999966</x:Double>
+                                                    <x:Double x:Key="StateContainerHeight">38.746666666666684</x:Double>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </State>
+                                            </Transition.To>
+                                          </Transition>
+                                        </State.Transitions>
                                       </State>
                                     </Transition.To>
                                   </Transition>
-                                </State.Transitions>
-                              </State>
-                            </Transition.To>
-                          </Transition>
-                          <Transition DisplayName="Not Enough Credit" sap:VirtualizedContainerService.HintSize="451.3333333333333,502" sap2010:WorkflowViewState.IdRef="Transition_14">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <av:PointCollection x:Key="ConnectorLocation">805,316 1057.3,316 1057.3,260.6666666666667</av:PointCollection>
-                                <x:Int32 x:Key="SrcConnectionPointIndex">32</x:Int32>
-                                <x:Int32 x:Key="DestConnectionPointIndex">3</x:Int32>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <Transition.To>
-                              <State x:Name="__ReferenceID3" DisplayName="Go back?" sap:VirtualizedContainerService.HintSize="206,60.666666666666664" sap2010:WorkflowViewState.IdRef="State_4">
-                                <State.Entry>
-                                  <Sequence sap2010:Annotation.AnnotationText="If products aren't selected, or credit is insufficient, 3 options are displayed:&#xA;- Select another item.&#xA;- Add more credit.&#xA;- Cancel order." sap:VirtualizedContainerService.HintSize="450,462" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                  <Transition DisplayName="No Products" sap:VirtualizedContainerService.HintSize="451.3333333333333,502" sap2010:WorkflowViewState.IdRef="Transition_16">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                    <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="416,323.3333333333333" sap2010:WorkflowViewState.IdRef="InputDialog_6" IsPassword="False" Label="Please select an option to continue:" OptionsString="Select another item;Insert more credit;Cancel order" Title="Smart Café Station">
-                                      <ui:InputDialog.Result>
-                                        <OutArgument x:TypeArguments="x:String">[str_option]</OutArgument>
-                                      </ui:InputDialog.Result>
-                                    </ui:InputDialog>
-                                  </Sequence>
-                                </State.Entry>
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <av:Point x:Key="ShapeLocation">1047,200</av:Point>
-                                    <av:Size x:Key="ShapeSize">206,60.666666666666664</av:Size>
-                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    <x:Double x:Key="StateContainerWidth">193.99999999999966</x:Double>
-                                    <x:Double x:Key="StateContainerHeight">29</x:Double>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <State.Transitions>
-                                  <Transition DisplayName="Yes" sap:VirtualizedContainerService.HintSize="451.3333333333333,502" sap2010:WorkflowViewState.IdRef="Transition_11">
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <av:PointCollection x:Key="ConnectorLocation">1211.8,200 1211.8,110 701.5,110 701.5,140</av:PointCollection>
-                                        <x:Int32 x:Key="SrcConnectionPointIndex">62</x:Int32>
-                                        <x:Int32 x:Key="DestConnectionPointIndex">42</x:Int32>
+                                        <av:PointCollection x:Key="ConnectorLocation">747.5,280 747.5,200.66666666666666</av:PointCollection>
+                                        <x:Int32 x:Key="SrcConnectionPointIndex">58</x:Int32>
+                                        <x:Int32 x:Key="DestConnectionPointIndex">59</x:Int32>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                     <Transition.To>
                                       <x:Reference>__ReferenceID0</x:Reference>
                                     </Transition.To>
-                                    <Transition.Condition>[str_option.Equals("Select another items")]</Transition.Condition>
+                                    <Transition.Action>
+                                      <ui:MessageBox ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" Caption="Smart Café Station" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="346,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_15" Text="[&quot;You forgot to add products!&quot;]" />
+                                    </Transition.Action>
+                                    <Transition.Condition>
+                                      <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="dou_totalAmount = 0" />
+                                    </Transition.Condition>
                                   </Transition>
-                                  <Transition DisplayName="No" sap:VirtualizedContainerService.HintSize="451.3333333333333,502" sap2010:WorkflowViewState.IdRef="Transition_8">
+                                  <Transition DisplayName="Not Enough Credit" sap:VirtualizedContainerService.HintSize="451.3333333333333,502" sap2010:WorkflowViewState.IdRef="Transition_14">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <av:PointCollection x:Key="ConnectorLocation">1211.8,260.6666666666667 1211.8,290.6666666666667 1213,290.6666666666667 1213,435</av:PointCollection>
-                                        <x:Int32 x:Key="SrcConnectionPointIndex">63</x:Int32>
-                                        <x:Int32 x:Key="DestConnectionPointIndex">62</x:Int32>
+                                        <av:PointCollection x:Key="ConnectorLocation">805,316 1077.9,316 1077.9,260.6666666666667</av:PointCollection>
+                                        <x:Int32 x:Key="SrcConnectionPointIndex">32</x:Int32>
+                                        <x:Int32 x:Key="DestConnectionPointIndex">11</x:Int32>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                     <Transition.To>
                                       <x:Reference>__ReferenceID1</x:Reference>
                                     </Transition.To>
-                                    <Transition.Condition>[str_option.Equals("Cancel order")]</Transition.Condition>
-                                  </Transition>
-                                  <Transition DisplayName="More credit" sap:VirtualizedContainerService.HintSize="451.3333333333333,502" sap2010:WorkflowViewState.IdRef="Transition_15">
-                                    <sap:WorkflowViewStateService.ViewState>
-                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <av:PointCollection x:Key="ConnectorLocation">1129.4,260.6666666666667 1129.4,390 770.5,390 770.5,360</av:PointCollection>
-                                        <x:Int32 x:Key="SrcConnectionPointIndex">31</x:Int32>
-                                        <x:Int32 x:Key="DestConnectionPointIndex">67</x:Int32>
-                                      </scg:Dictionary>
-                                    </sap:WorkflowViewStateService.ViewState>
-                                    <Transition.To>
-                                      <x:Reference>__ReferenceID2</x:Reference>
-                                    </Transition.To>
-                                    <Transition.Condition>[str_option.Equals("Insert more credit")]</Transition.Condition>
+                                    <Transition.Action>
+                                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="346,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_9" Text="[&quot;Sorry, your balance is too low for this selection.&quot;]" />
+                                    </Transition.Action>
+                                    <Transition.Condition>[int_credit &lt; dou_totalAmount]</Transition.Condition>
                                   </Transition>
                                 </State.Transitions>
                               </State>
                             </Transition.To>
-                            <Transition.Action>
-                              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="346,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_9" Text="[&quot;Sorry, your balance is too low for this selection.&quot;]" />
-                            </Transition.Action>
-                            <Transition.Condition>[int_credit &lt; dou_totalAmount]</Transition.Condition>
+                          </Transition>
+                          <Transition DisplayName="No" sap:VirtualizedContainerService.HintSize="451.3333333333333,502" sap2010:WorkflowViewState.IdRef="Transition_8">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:PointCollection x:Key="ConnectorLocation">1211.8,260.6666666666667 1211.8,290.6666666666667 1192,290.6666666666667 1192,435</av:PointCollection>
+                                <x:Int32 x:Key="SrcConnectionPointIndex">63</x:Int32>
+                                <x:Int32 x:Key="DestConnectionPointIndex">54</x:Int32>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Transition.To>
+                              <x:Reference>__ReferenceID2</x:Reference>
+                            </Transition.To>
+                            <Transition.Condition>[str_option.Equals("Cancel order")]</Transition.Condition>
                           </Transition>
                         </State.Transitions>
                       </State>
+                    </Transition.To>
+                    <Transition.Action>
+                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="522.6666666666666,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_8" Text="[&quot;No products selected.&quot;]" />
+                    </Transition.Action>
+                    <Transition.Condition>[str_selectedBeverage.Contains("Nothing") AND str_selectedFood.Contains("Nothing")]</Transition.Condition>
+                  </Transition>
+                  <Transition DisplayName="Products Selected" sap:VirtualizedContainerService.HintSize="573.3333333333334,678.6666666666666" sap2010:WorkflowViewState.IdRef="Transition_7">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <av:PointCollection x:Key="ConnectorLocation">621,200.66666666666666 621,280</av:PointCollection>
+                        <x:Int32 x:Key="SrcConnectionPointIndex">15</x:Int32>
+                        <x:Int32 x:Key="DestConnectionPointIndex">14</x:Int32>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Transition.To>
+                      <x:Reference>__ReferenceID3</x:Reference>
                     </Transition.To>
                     <Transition.Action>
                       <Sequence sap:VirtualizedContainerService.HintSize="468,286.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_19">
@@ -674,25 +712,7 @@
                         <ui:MessageBox ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" Caption="Smart Café Station" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434,109.33333333333333" sap2010:WorkflowViewState.IdRef="MessageBox_12" Text="[&quot;Total: &quot; + dou_totalAmount.ToString(&quot;F2&quot;) + &quot; €&quot;]" />
                       </Sequence>
                     </Transition.Action>
-                    <Transition.Condition>
-                      <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="dou_beveragePrice &gt; 0 OR dou_foodPrice &gt; 0" />
-                    </Transition.Condition>
-                  </Transition>
-                  <Transition DisplayName="No Products Selected" sap:VirtualizedContainerService.HintSize="628,502" sap2010:WorkflowViewState.IdRef="Transition_6">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <av:PointCollection x:Key="ConnectorLocation">805,173.36666666666667 1129.4,173.36666666666667 1129.4,200</av:PointCollection>
-                        <x:Int32 x:Key="SrcConnectionPointIndex">40</x:Int32>
-                        <x:Int32 x:Key="DestConnectionPointIndex">30</x:Int32>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <Transition.To>
-                      <x:Reference>__ReferenceID3</x:Reference>
-                    </Transition.To>
-                    <Transition.Action>
-                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="522.6666666666666,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_8" Text="[&quot;No products selected.&quot;]" />
-                    </Transition.Action>
-                    <Transition.Condition>[str_selectedBeverage.Contains("Nothing") AND str_selectedFood.Contains("Nothing")]</Transition.Condition>
+                    <Transition.Condition>[dou_beveragePrice &gt; 0 OR dou_foodPrice &gt; 0]</Transition.Condition>
                   </Transition>
                 </State.Transitions>
               </State>
@@ -721,9 +741,9 @@
         </State.Transitions>
       </State>
       <x:Reference>__ReferenceID0</x:Reference>
+      <x:Reference>__ReferenceID1</x:Reference>
       <x:Reference>__ReferenceID3</x:Reference>
       <x:Reference>__ReferenceID2</x:Reference>
-      <x:Reference>__ReferenceID1</x:Reference>
       <x:Reference>__ReferenceID5</x:Reference>
       <StateMachine.Variables>
         <Variable x:TypeArguments="x:String" Name="user_ID" />
